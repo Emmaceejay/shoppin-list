@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shopping list</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <div class="main">
+        <h1>My Shopping list</h1>
+    
+    <div>
+        <label for="item" style="font-size: 20px; font-weight: bolder;">Enter a new item:</label>
+        <input type="text" name="item" id="item" placeholder="Enter name of the items" style="border: solid 0.15rem;">
+        <button>Add item</button>
+    </div>
+    <ul>
+
+    </ul>
+
+    </div>
+    
+
+    <script>
+        const list = document.querySelector('ul')
+        const textBoxInput = document.querySelector('input')
+        const button = document.querySelector('button')
+
+        button.addEventListener('click', () =>{
+            const myItems = textBoxInput.value;
+            textBoxInput.value = '';
+
+            const listedItems = document.createElement('li');
+            const listBtn = document.createElement('button');
+            const eachItem = document.createElement('span')
+
+
+            listedItems.appendChild(eachItem);
+            eachItem.textContent = myItems;
+            eachItem.appendChild(listBtn);
+            listBtn.textContent = 'Delete';
+            list.appendChild(listedItems);
+
+            listBtn.addEventListener('click', () =>{
+                list.removeChild(listedItems);
+            });
+        });
+    </script>
+    
+</body>
+</html>
